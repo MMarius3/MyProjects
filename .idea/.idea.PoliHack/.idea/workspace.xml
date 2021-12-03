@@ -5,11 +5,17 @@
     <projectFile profileName="PoliHack">PoliHack.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="723a8e42-2c9f-4953-b88c-cedd10192cc3" name="Changes" comment="" />
+    <list default="true" id="723a8e42-2c9f-4953-b88c-cedd10192cc3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PoliHack/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PoliHack/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="21m72tIV9wTjPynjCQUIovCQnLT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -63,15 +69,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1638534204693</updated>
-      <workItem from="1638534212286" duration="298000" />
+      <workItem from="1638534212286" duration="369000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
