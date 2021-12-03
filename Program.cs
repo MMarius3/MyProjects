@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using PoliHack.Service;
 
 namespace PoliHack
 {
@@ -13,7 +14,10 @@ namespace PoliHack
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            // CreateHostBuilder(args).Build().Run();
+            
+            // Dijsktra.Run();
+            // DifferenceBetweenShortestAndSecondShortestPath.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
