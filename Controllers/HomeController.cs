@@ -17,9 +17,10 @@ namespace PoliHack.Controllers
         {
             _logger = logger;
         }
-
-        public IActionResult Index()
+        
+        public IActionResult Index(int resX, int resY, int resX1, int resY1)
         {
+            Console.WriteLine(resX + ", " + resY + "; " + resX1 + ", " + resY1);
             return View();
         }
 
