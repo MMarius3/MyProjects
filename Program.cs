@@ -14,10 +14,10 @@ namespace PoliHack
     {
         public static void Main(string[] args)
         {
-            // CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().Run();
 
             // Dijsktra.Run();
-            Dijkstra.TestDijsktra();
+            //Dijkstra.TestDijsktra();
             // DifferenceBetweenShortestAndSecondShortestPath.Run();
         }
 

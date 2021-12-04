@@ -1,119 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-
-@* <head> *@
-@*     <title> *@
-@*         How to get the coordinates of a mouse *@
-@*         click on a canvas element? *@
-@*     </title> *@
-@* </head> *@
-@*    *@
-@* <body> *@
-@*     <h1 style="color: green"> *@
-@*         GeeksforGeeks *@
-@*     </h1> *@
-@*        *@
-@*     <b> *@
-@*         How do I get the coordinates of a  *@
-@*         mouse click on a canvas element? *@
-@*     </b> *@
-@*        *@
-@*     <p> *@
-@*         Click anywhere on the canvas element *@
-@*         to get the mouse pointer location. *@
-@*     </p> *@
-@*        *@
-@*     <p> *@
-@*         The size of the canvas *@
-@*         is a square of 200px. *@
-@*     </p> *@
-@*        *@
-@*     <p>Check the console for the output.</p> *@
-@*        *@
-@*     <canvas width="200" height="200" *@
-@*         style="background-color: green"> *@
-@*     </canvas> *@
-@*    *@
-@* <script type="text/javascript"> *@
-@* *@
-@*     var xValue; *@
-@*     var yValue; *@
-@*         function getMousePosition(canvas, event) { *@
-@*             let rect = canvas.getBoundingClientRect(); *@
-@*             xValue = event.clientX - rect.left; *@
-@*             yValue = event.clientY - rect.top; *@
-@*         } *@
-@*        *@
-@*         let canvasElem = document.querySelector("canvas"); *@
-@*            *@
-@*         canvasElem.addEventListener("mousedown", function(e) *@
-@*         { *@
-@*             getMousePosition(canvasElem, e); *@
-@*         }); *@
-@*         window.onload = function(xValue, yValue) { *@
-@*             var dps = []; //dataPoints.  *@
-@* *@
-@*             var chart = new CanvasJS.Chart("chartContainer", { *@
-@*                 title: { *@
-@*                     text: "Accepting DataPoints from User Input" *@
-@*                 }, *@
-@*                 data: [{ *@
-@*                     type: "line", *@
-@*                     dataPoints: dps *@
-@*                 }] *@
-@*             }); *@
-@* *@
-@*             function addDataPointsAndRender() { *@
-@*                 console.log("Coordinate x: " + xValue,  *@
-@*                                                     "Coordinate y: " + yValue); *@
-@*                 dps.push({ *@
-@*                     x: xValue, *@
-@*                     y: yValue *@
-@*                 }); *@
-@*                 chart.render(); *@
-@*             } *@
-@* *@
-@*             var renderButton = document.getElementById("renderButton"); *@
-@*             renderButton.addEventListener("click", addDataPointsAndRender); *@
-@*         } *@
-@*     </script> *@
-@*     <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> *@
-@* *@
-@*     <div id="chartContainer" style="height: 270px; width: 100%;"> *@
-@*     </div> *@
-@* </body> *@
-@* <head> *@
-@*     <title>Web</title> *@
-@*     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> *@
-@* </head> *@
-@* <body> *@
-@*    <div id="A" style="left:100px;"> Default    <br /> mouse<br/>position </div> *@
-@*    <div id="B" style="left:300px;"> offset()   <br /> mouse<br/>position </div> *@
-@* <div id="C" style="left:500px;"> position() <br /> mouse<br/>position </div> *@
-@* *@
-@* <script type="text/javascript"> *@
-@* $(document).ready(function (e) { *@
-@* *@
-@*     $('#A').click(function (e) { //Default mouse Position  *@
-@*         alert(e.pageX + ' , ' + e.pageY); *@
-@*     }); *@
-@* *@
-@*     $('#B').click(function (e) { //Offset mouse Position *@
-@*         var posX = $(this).offset().left, *@
-@*             posY = $(this).offset().top; *@
-@*         alert((e.pageX - posX) + ' , ' + (e.pageY - posY)); *@
-@*     }); *@
-@* *@
-@*     $('#C').click(function (e) { //Relative ( to its parent) mouse position  *@
-@*         var posX = $(this).position().left, *@
-@*             posY = $(this).position().top; *@
-@*         alert((e.pageX - posX) + ' , ' + (e.pageY - posY)); *@
-@*     }); *@
-@* }); *@
-@* </script> *@
-@* </body> *@
 <head>
     <title>
         Web
@@ -148,10 +35,13 @@ $(document).ready(function () {
     var resX = null,
       resY = null, 
       resX1 = null,
-      resY1 = null;
+      resY1 = null,
+      cost = null,
+      isModifiable = null,
+      type = null;
   
     var moveLineId = "moveLine";
-  
+
     // Use "mousedown" here so the start of a line is registered as soon as you press the mouse button.
     $('#demo').on("mousedown", function(event) {
         $(".line").removeAttr('id');
@@ -165,7 +55,13 @@ $(document).ready(function () {
           x1 = y1 = null;
         }
       })
+      
       .delegate('.line', 'mouseup', function(event) {
+        
+        $("#getValBtnID").click(function () {
+                         cost = $("#userInputID").val();
+                         });
+        
         $.ajax(
                     {
                         type: "POST", //HTTP POST Method
@@ -174,10 +70,10 @@ $(document).ready(function () {
                             resX: resX, //Reading text box values using Jquery 
                             resY: resY,
                             resX1: resX1,
-                            resY1: resY1
+                            resY1: resY1,
+                            cost: cost
                         }
                     });
-        console.log(resX, " ", resY, " ", resX1, " ", resY1);
               resX = null;
               resY = null;
               resX1 = null;
@@ -199,7 +95,6 @@ $(document).ready(function () {
         x1 = y1 = null;
       }
     });
-  
   
     function createLine(x1, y1, x2, y2, id) {
       
@@ -239,4 +134,15 @@ $(document).ready(function () {
 });
 </script>
 <div id="demo" class="wide"></div>
+
+<b>Cost:</b>
+      
+    <br><br>
+      
+    <input type="text" id="userInputID">
+    <br><br>
+  
+    <button type="button" id="getValBtnID">
+        Set Values
+    </button>
 </body>
