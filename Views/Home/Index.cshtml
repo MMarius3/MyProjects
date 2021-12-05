@@ -36,11 +36,22 @@ $(document).ready(function () {
       resY = null, 
       resX1 = null,
       resY1 = null,
-      cost = null,
+      costVtoE = null,
+      costEtoV = null,
+      nrVtoE = null,
+      nrEtoV = null,
       isModifiable = null,
-      type = null;
+      name = null;
   
     var moveLineId = "moveLine";
+    $("#getValBtnID").click(function () {
+                             costVtoE = $("#timeVtoEInput").val();
+                             costEtoV = $("#timeEtoVInput").val();
+                             nrVtoE = $("#noVtoEInput").val();
+                             nrEtoV = $("#noEtoVInput").val();
+                             isModifiable = $("#modifiableInput").val();
+                             name = $("#streetInput").val();
+                             });
 
     // Use "mousedown" here so the start of a line is registered as soon as you press the mouse button.
     $('#demo').on("mousedown", function(event) {
@@ -58,10 +69,6 @@ $(document).ready(function () {
       
       .delegate('.line', 'mouseup', function(event) {
         
-        $("#getValBtnID").click(function () {
-                         cost = $("#userInputID").val();
-                         });
-        
         $.ajax(
                     {
                         type: "POST", //HTTP POST Method
@@ -71,7 +78,12 @@ $(document).ready(function () {
                             resY: resY,
                             resX1: resX1,
                             resY1: resY1,
-                            cost: cost
+                            costVtoE: costVtoE,
+                            costEtoV: costEtoV,
+                            nrVtoE: nrVtoE,
+                            nrEtoV: nrEtoV,
+                            isModifiable: isModifiable,
+                            name: name
                         }
                     });
               resX = null;
@@ -135,14 +147,46 @@ $(document).ready(function () {
 </script>
 <div id="demo" class="wide"></div>
 
-<b>Cost:</b>
+<b>Street Name:</b>
       
     <br><br>
+<input type="text" id="streetInput">
+<br><br>
+
+<b>Number of lanes from V to E:</b>
       
-    <input type="text" id="userInputID">
     <br><br>
+<input type="text" id="noVtoEInput">
+<br><br>
+
+<b>Average travel time from V to E:</b>
+      
+    <br><br>
+<input type="text" id="timeVtoEInput">
+<br><br>
+
+<b>Number of lanes from Eto V:</b>
+      
+    <br><br>
+<input type="text" id="noEtoVInput">
+<br><br>
+
+<b>Average travel time from E to V:</b>
+      
+    <br><br>
+<input type="text" id="timeEtoVInput">
+<br><br>
+
+<b>Can we modify it?</b>
+      
+    <br><br>
+<input type="text" id="modifiableInput">
+<br><br>
   
-    <button type="button" id="getValBtnID">
-        Set Values
-    </button>
+<button type="button" id="getValBtnID">
+  Set Values
+</button>
+
+<br><br>
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="TrafficResult">Gaseste solutia</a>
 </body>

@@ -8,4 +8,12 @@
       <PackageReference Include="EntityFramework" Version="6.4.4" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="Models\Point.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Images\free.png" />
+    </ItemGroup>
+
 </Project>
