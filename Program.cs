@@ -7,7 +7,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using PoliHack.Service;
-using PoliHack.Service.Algorithms;
 
 namespace PoliHack
 {
@@ -15,17 +14,11 @@ namespace PoliHack
     {
         public static void Main(string[] args)
         {
-            // CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().Run();
 
-            // Dijkstra.TestDijsktra();
+            // Dijsktra.Run();
+            //Dijkstra.TestDijsktra();
             // DifferenceBetweenShortestAndSecondShortestPath.Run();
-
-            // TrafficSimulator trafficSimulator = new TrafficSimulator(RoadSystemConfiguration.GetDummyValue(), 10);
-            // trafficSimulator.analyzeJourneys(trafficSimulator.Simulate());
-            RoadModificationsGenerator roadModificationsGenerator =
-                new RoadModificationsGenerator(RoadSystemConfiguration.GetDummyValue());
-            roadModificationsGenerator.initBacktracking();
-            roadModificationsGenerator.back(0);
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
